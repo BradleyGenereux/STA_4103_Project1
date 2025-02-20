@@ -35,7 +35,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 
-from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, mean_squared_error as mean_sq_err, r2_score
 
 import joblib
 
@@ -43,28 +43,33 @@ import joblib
 file = pd.read_csv('STA 4103\\Project 1\\data\\miami-housing.csv') # original file reading; https://www.kaggle.com/datasets/deepcontractor/miami-housing-dataset
 content = file # copy of file reading, used for preprocessing
 
+
+# budget from above calculations in comments
 loan_amt = 207750
 savings = 27051.30 # 1 year of savings
-available_pay = loan_amt + savings
+budget = loan_amt + savings
 
 affordable = []
 for i in range(0,len(file)):
-    if content.loc[i]['SALE_PRC'] >= available_pay: affordable.append(0)    # set 0 for unaffordable
-    else: affordable.append(1)                                              # set 1 for affordable
+    if content.loc[i]['SALE_PRC'] >= budget: affordable.append(0)    # set 0 for unaffordable
+    else: affordable.append(1)                                       # set 1 for affordable
 
-content['AFFORD'] = affordable
-content.pop('month_sold')
+content['AFFORD'] = affordable  # create new column 'AFFORD' to replace 'SALE_PRC' as a binary 0 for 'Unaffordable' and 1 for 'Affordable'
+content.pop('month_sold')       # remove unnecessary column 'month_sold'
+content.pop('PARCELNO')         # remove unnecessary column 'PARCELNO'
+content.pop('SALE_PRC')         # remove unnecessary column 'SALE_PRC'
+
 
 # extract x and y from data
-x = (content.iloc[:,4:16]).values.tolist()
-y = (content.iloc[:,16]).values.tolist()
+x = (content.iloc[:,0:14]).values.tolist()
+y = (content.iloc[:,14]).values.tolist()
 
 # split x and y into training and testing sets
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state = 0)
-ss_train = StandardScaler()
-x_train = ss_train.fit_transform(x_train)
-ss_test = StandardScaler()
-x_test = ss_test.fit_transform(x_test)
+scaler = StandardScaler()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
+
 
 # create classification models
 models = {}
@@ -75,7 +80,7 @@ models['Random Forest'] = RandomForestClassifier()      # Random Forest
 models['Naive Bayes'] = GaussianNB()                    # Naive Bayes
 models['K-Nearest Neighbor'] = KNeighborsClassifier()   # K-Nearest Neighbors
 
-accuracy, precision, recall = {}, {}, {}
+accuracy, precision, recall, meanSE, r2 = {}, {}, {}, {}, {}
 
 i = 0
 model_file = ["LogReg.pkl","SVC.pkl","DecTree.pkl","RanFor.pkl","NaiBayes.pkl","KNear.pkl"]
@@ -84,16 +89,55 @@ for key in models.keys():
     predictions = models[key].predict(x_test)   # Make predictions using test data
     
     # Calculate metrics; comparing predictions to the test data
-    accuracy[key] = accuracy_score(predictions, y_test)     
-    precision[key] = precision_score(predictions, y_test)
-    recall[key] = recall_score(predictions, y_test)
+    accuracy[key] = accuracy_score(y_test, predictions)     
+    precision[key] = precision_score(y_test, predictions)
+    recall[key] = recall_score(y_test, predictions)
+    meanSE[key] = mean_sq_err(y_test, predictions)
+    r2[key] = abs(r2_score(y_test, predictions))
 
     # Save model
     joblib.dump(models[key], model_file[i]); i += 1
 
-df_model = pd.DataFrame(index=models.keys(), columns=['Accuracy', 'Precision', 'Recall'])
+
+# print coeficients
+coef = []
+ind = ['Logistic Regression', 'Support Vector Machines', 'Decision Trees', 'Random Forest', 'Naive Bayes']
+col = ["LATITUDE","LONGITUDE","LND_SQFOOT","TOT_LVG_AREA",
+    "SPEC_FEAT_VAL","RAIL_DIST","OCEAN_DIST","WATER_DIST","CNTR_DIST","SUBCNTR_DI","HWY_DIST","age","avno60plus","structure_quality"]
+
+coef.append(models[ind[0]].coef_[0])
+coef.append(models[ind[1]].coef_[0])
+coef.append(models[ind[2]].feature_importances_)
+coef.append(models[ind[3]].feature_importances_)
+nb_coef = models['Naive Bayes'].var_
+
+# prepare dataframe for print
+df = pd.DataFrame(index=ind, columns=col)
+for i in range(0,len(col)):
+    arr = []
+    for j in range(0,len(ind)-1):
+        arr.append(coef[j][i])
+    
+    arr2 = []
+    for k in range(0,2):
+        arr2.append(nb_coef[k][i])
+    arr.append(arr2)
+    df[col[i]] = arr
+
+print(f'{'---' * 65}\n{'   ' * 29}Coefficients\n{'---' * 65}')
+print(f'{df[col[:4]]}\n{'---' * 65}')
+print(f'{df[col[4:8]]}\n{'---' * 65}')
+print(f'{df[col[8:12]]}\n{'---' * 65}')
+print(f'{df[col[12:]]}\n{'---' * 65}')
+print(f'K-Nearest Neighbors Parameters: {models['K-Nearest Neighbor'].weights}\n{'---' * 65}')
+
+# print metrics
+df_model = pd.DataFrame(index=models.keys(), columns=['Accuracy', 'Precision', 'Recall', 'Mean Squared Error', 'R-Squared'])
 df_model['Accuracy'] = accuracy.values()
 df_model['Precision'] = precision.values()
 df_model['Recall'] = recall.values()
+df_model['Mean Squared Error'] = meanSE.values()
+df_model['R-Squared'] = r2.values()
 
-print(df_model)
+print(f'{'---' * 65}\n{'---' * 65}\n{'   ' * 29}Model Metrics\n{'---' * 65}')
+print(f'{df_model}\n{'---' * 65}')

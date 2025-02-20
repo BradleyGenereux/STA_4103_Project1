@@ -16,12 +16,12 @@
 ## **INTRODUCTION** ##
 > This project explores how various factors in a dataset of Miami housing prices can help predict whether a person can afford a house. The dataset includes features such as property size (LND_SQFOOT, TOT_LVG_AREA), location (LATITUDE, LONGITUDE), proximity to important locations (e.g., RAIL_DIST, OCEAN_DIST, HWY_DIST), the age of the property (age), and its overall condition (structure_quality).
 
-The primary goal of this analysis is to determine the affordability of a house based on a person's budget and average income, and then predict whether that budget can accommodate houses with various parameters. By analyzing these factors, the project seeks to answer questions such as:
+> The primary goal of this analysis is to determine the affordability of a house based on a person's budget and average income, and then predict whether that budget can accommodate houses with various parameters. By analyzing these factors, the project seeks to answer questions such as:
 
-1) What parameters most significantly impact house pricing in Miami?
-2) Can we predict if someone can afford a house based on their income, budget, and the features of available properties?
+> 1) What parameters most significantly impact house pricing in Miami?
+> 2) Can we predict if someone can afford a house based on their income, budget, and the features of available properties?
 
-The project uses machine learning models to estimate house prices and compare them to a person's budget, allowing for an exploration of which parameters make a house affordable or out of reach.
+> The project uses machine learning models to estimate house prices and compare them to a person's budget, allowing for an exploration of which parameters make a house affordable or out of reach.
 
 ## **DOCUMENTATION** ##
 > Placeholder

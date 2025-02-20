@@ -24,7 +24,11 @@
 > The project uses machine learning models to estimate house prices and compare them to a person's budget, allowing for an exploration of which parameters make a house affordable or out of reach.
 
 ## **DOCUMENTATION** ##
-> Placeholder
+> The dataset used in this project, Miami Housing Data, is publicly available. You can access the source documentation and more information about the data at the following URL:
+
+> https://www.kaggle.com/datasets/deepcontractor/miami-housing-dataset
+
+> This dataset contains detailed information about housing prices in Miami, as well as various features including their locations, sizes, and proximity to important landmarks and infrastructure. It was used to analyze the impact of these features on housing prices and to build a model that predicts house affordability.
 
 ## **ANALYSIS** ##
 > Placeholder

@@ -62,7 +62,7 @@
 ## **Future Enhancements** ##
 > Although our mathematical models were highly accurate, there are many ways to improve the precision and accuracy to be to make an even better prediction on the affordability of houses in Miami. Hedonic Pricing Models are common in real estate economics and can incorporate inflation, interest rates, and market demand. Another possible tool we could use to improve our models is Time Series Forecasting. If we had the knowledge and resources to use this model it would give us data on the housing prices of 5-10 years so we could determine if the affordability of a house is attainable in a future point in time instead of limiting ourselves to just the present. 
 
-> Another way we could improve our work is to incoporate more parameters to give homebuyers more options when selecting property. Although we had the main ones like Square footage, accessibilty to railroad, highway, and the ocean, there are many paremeters that consumers would deem important in their homebuying journey. Crime rate, environmental risks, and distance to schools are just some of the parameters that could be analyzed in choosing a home in Miami.
+> Another way we could improve our work is to incoporate more parameters to give homebuyers more options when selecting property. Although we had vital parameters  home like Square footage, accessibilty, and age of the home, there are many paremeters that consumers would deem important in their homebuying journey. Crime rate, environmental risks, and distance to schools are just some of the parameters that could be included in the process of choosing a home in Miami.
 
 ## **CREDITS** ##
 > Bradley Genereux -  

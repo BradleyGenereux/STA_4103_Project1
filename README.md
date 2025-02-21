@@ -51,6 +51,12 @@
 ## **Conclusion** ##
 > Our goal was to analyze the affordability of a house based on a person's budget and average income. Using various parameters, we were able to see how different parameters affected the prices and how extreme. 
 
+> Despite the high accuracy of our models, they are not perfect. Decision trees can be heavily affected by outliers. Luxury homes and properties in flood zone are some of the factors that can play a role in a decision tree being inaccurate which leads to the Random Forests also being inaccurate. Our models also don’t consider the fluctuations of the housing market. Shifts in real estate development, property taxes, demand from foreign buyers, can all affect the housing market.
+
+> The best performing models were Decision Trees, Random Forests, and K-Nearest Neighbour. Decision trees were able to leverage past house sales to make informed predictions on the affordability of houses with different parameters. Each “tree” considers a random subset of features (e.g., Square footage, Distance to the Railroad, Ocean, Highway). The Random Forest gives us the combined averages of each parameter giving strong conclusions about the affordability of a house on a given budget.
+
+> The K-Nearest neighbor model found similarities between data points and compared the target home to similar houses recently sold in Miami. This model is adaptive to new data and is flexible and simple to use, helping homebuyers compare options based on past sales, and pairs well with real estate data. 
+
 ## **Future Enhancements** ##
 > Although our mathematical models were highly accurate, there are many ways to improve the precision and accuracy to be to make an even better prediction on the affordability of houses in Miami. Hedonic Pricing Models are common in real estate economics and can incorporate inflation, interest rates, and market demand. Since we used a cost of living model, we only have the average to base our predictions on. Taking factors like the ever changing economy and how it affects house prices would greatly enhance the accuracy of our predictions. 
 

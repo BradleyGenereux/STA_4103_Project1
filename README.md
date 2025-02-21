@@ -57,7 +57,7 @@
 
 ![Image](https://github.com/user-attachments/assets/baad4b3d-513c-4b20-b3d4-1bf6343d7a5c)
 
-> USing Decision trees, we were able to leverage past house sales to make informed predictions on the affordability of houses with different parameters. Each “tree” considers a random subset of features (e.g., Square footage, Distance to the Railroad, Ocean, Highway). The Random Forest gives us the combined averages of each parameter giving strong conclusions about the affordability of a house on a given budget.
+> Using Decision trees, we were able to leverage past house sales to make informed predictions on the affordability of houses with different parameters. Each “tree” considers a random subset of features (e.g., Square footage, Distance to the Railroad, Ocean, Highway). The Random Forest gives us the combined averages of each parameter giving strong conclusions about the affordability of a house on a given budget.
 
 > The K-Nearest neighbor model found similarities between data points and compared the target home to similar houses recently sold in Miami. This model is adaptive to new data and is flexible and simple to use, helping homebuyers compare options based on past sales, and pairs well with real estate data. 
 

@@ -11,7 +11,7 @@
 > 3) Install dependencies:
 >    pip install -r requirements.txt
 > 4) Run train-models-miami.py to create models
-> 5) run test_models.py to predict affordability based on user input
+> 5) Run test_models.py to predict affordability based on user input
 
 ## **INTRODUCTION** ##
 > This project explores how various factors in a dataset of Miami housing prices can help predict whether a person can afford a house. The dataset includes features such as property size (LND_SQFOOT, TOT_LVG_AREA), location (LATITUDE, LONGITUDE), proximity to important locations (e.g., RAIL_DIST, OCEAN_DIST, HWY_DIST), the age of the property (age), and its overall condition (structure_quality).

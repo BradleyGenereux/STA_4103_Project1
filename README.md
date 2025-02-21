@@ -53,7 +53,7 @@
 
 > Despite the high accuracy of our models, they are not perfect. Outliers such as Luxury homes and properties in flood zone are some of the factors that can play a role in a decision tree being inaccurate which leads to the Random Forests also being inaccurate. Our models also don’t consider the fluctuations of the housing market. Shifts in real estate development, property taxes, natural disasters, are all smaller factors that can stack together to skew the modeling prediction.
 
-> In our Analysis, we used logistic regressions, Support Vector Machines, Decision Trees, Random Forests, K-Nearest neighbor and Naive Bayes models to predict affordability of the houses in Miami. All the models performed well, however the best performing models were Decision Trees, Random Forests, and K-Nearest Neighbor. 
+> In our Analysis, we used logistic regressions, Support Vector Machines, Decision Trees, Random Forests, Naive Bayes models and K-Nearest neighbor to predict affordability of the houses in Miami. All the models performed well, however the best performing models were Decision Trees, Random Forests, and K-Nearest Neighbor. 
 
 ![Image](https://github.com/user-attachments/assets/baad4b3d-513c-4b20-b3d4-1bf6343d7a5c)
 

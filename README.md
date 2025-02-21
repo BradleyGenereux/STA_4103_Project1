@@ -51,6 +51,10 @@
 ## **Conclusion** ##
 > Our goal was to analyze the affordability of a house based on a person's budget and average income. Using various parameters, we were able to see how different parameters affected the prices and how extreme. 
 
+## **Future Enhancements** ##
+> Although our mathematical models were highly accurate, there are many ways to improve the precision and accuracy to be to make an even better prediction on the affordability of houses in Miami. Hedonic Pricing Models are common in real estate economics and can incorporate inflation, interest rates, and market demand. Since we used a cost of living model, we only have the average to base our predictions on. Taking factors like the ever changing economy and how it affects house prices would greatly enhance the accuracy of our predictions. 
+> Another possible tool we could use to improve our models is Time Series Forecasting. If we had the knowledge and resources to use this model it would give us data on the housing prices of 5-10 years so we could determine if the affordability of a house is attainable in a future point in time instead of limiting ourselves to just the present. 
+
 ## **CREDITS** ##
 > Bradley Genereux -  
 > Caleb Hancock -  

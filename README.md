@@ -67,8 +67,6 @@
 > Another way we could improve our work is to incoporate more parameters to give homebuyers more options when selecting property. Although we had vital parameters like square footage, accessibilty, and age of the home, there are many paremeters that consumers would deem important in their homebuying journey. Crime rate, environmental risks, and distance to schools are just some of the parameters that could be included in the process of choosing a home in Miami.
 
 ## **CREDITS** ##
-> Bradley Genereux -
-
-> Caleb Hancock - Conclusion, Future Enhancements
-
-> Kiersten Birkholz -  
+> Bradley Genereux - Coding  
+> Caleb Hancock - README: Conclusion, Future Enhancements  
+> Kiersten Birkholz - README: Instructions, Introduction, Documentation, Analysis
